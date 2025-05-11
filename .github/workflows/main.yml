@@ -33,7 +33,7 @@ jobs:
           CI: true
 
       - name: Generate PDF with Bun
-        run: bun run generate-pdf.ts
+        run: bun run scripts/generate-pdf.ts
 
       - name: Commit and push PDF
         run: |
