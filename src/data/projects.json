@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Next Market",
+    "description": "Platform for connecting market hosts and vendors",
+    "dateString": "Dec 2024 - Current",
+    "link": [
+      {
+        "url": "https://app.nextmarket.io/",
+        "label": "nextmarket.io"
+      }
+    ],
+    "bullets": [
+      "Frontend: Next.js (TypeScript) + SSR, TailwindCSS, Formik (Form handling)",
+      "Backend: Supabase Edge function, Next API Routes, Supabase (AUTH + DB)",
+      "CI/CD: GitHub Actions to Vercel Deployment"
+    ]
+  },
+  {
+    "name": "Stella",
+    "description": "AI-powered fashion assistant",
+    "dateString": "Jul 2023 - Jan 2024",
+    "link": [
+      {
+        "url": "https://apps.apple.com/ca/app/stella-the-stylist/id6503121377",
+        "label": "IOS App"
+      },
+      {
+        "url": "https://www.instagram.com/stellaxstyle/",
+        "label": "Instagram"
+      }
+    ],
+    "bullets": [
+      "Frontend: React Native + Expo, Zustand (State Management), Expo Components (Camera, Image Picker, etc)",
+      "Backend: Supabase Edge functions + Postgres functions, Supabase (AUTH + DB), Postgres Vector Plugin, OpenAI + Gemini",
+      "Services: Data scraping with Playwright from H&M, Zara, etc."
+    ]
+  }
+]

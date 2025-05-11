@@ -1,0 +1,53 @@
+[
+  {
+    "active": true,
+    "company": "Airmiles / BMO",
+    "position": "Lead Software Engineer",
+    "dateString": "Nov 2021 - Current",
+    "location": "Toronto, ON",
+    "bullets": [
+      "Architected and led development of the core Offers API using AWS CloudFront, API Gateway, ECS. Now serving 23 M+ requests/month.",
+      "Spearheaded initiatives for the offers platform: audited maintainability across 30 owned repositories, decomposed feature requirements into epics and stories, and delivered accurate effort estimates to guide executive decision-making.",
+      "Partnered with product owners and enterprise architects to translate business requirements into scalable technical designs: defined contracts, data models, security policies, phased rollout plans and refactoring strategies.",
+      "Fostered a culture of knowledge sharing by leading technical deep-dive sessions on core services and authoring comprehensive documentation, including bug resolution guides, feature implementation plans, PoC proposals, and tech debt remediation strategies.",
+      "Championed developer experience and productivity by conceptualizing and delivering internal UI dashboard tools, local development environment automation scripts (WireMock, request proxying), and significantly optimizing Jenkins CI/CD pipelines based on organizational best practices."
+    ]
+  },
+  {
+    "active": true,
+    "company": "Soco",
+    "position": "Lead Software Engineer",
+    "dateString": "Oct 2021 - Nov 2022",
+    "location": "Remote",
+    "bullets": [
+      "Led UX design and implementation of onboarding and purchase flows—streamlining multi-step forms, clarifying CTAs and boosting conversion rates by 15%.",
+      "Engineered real-time chat using Firestore’s real-time listeners and Cloud Functions triggers, delivering sub-300 ms message updates.",
+      "Integrated YouTube Data API and Spotify Web API to enable multimedia embeds in freelancer profiles, increasing average session duration by 25%."
+    ]
+  },
+  {
+    "active": true,
+    "company": "HCL",
+    "position": "Software Engineer",
+    "dateString": "June 2020 - Oct 2021",
+    "location": "Markham, ON",
+    "bullets": [
+      "Optimized data ingest service on the Spring Framework lowering NiFi service deployment time from 50 minutes to under 15 minutes.",
+      "Built search indexing pipelines using ElasticSearch, Apachi NiFi, NiFi Registry and also managed docker builds for these services.",
+      "Implemented API and build script changes to services providing customers with easier upgrade and update functionality easing the transition between versions/releases."
+    ]
+  },
+  {
+    "active": false,
+    "company": "IBM",
+    "position": "Software Engineer Intern",
+    "dateString": "May 2018 - Aug 2019",
+    "location": "Markham, ON",
+    "bullets": [
+      "Leveraged GitLab CI to create a regression testing pipeline that for over a thousand JUnit test cases. Outputting the results to a dashboard for the team to view.",
+      "Developed new APIs for storefront using JPA entity mapping and BOD mapping, wrote detailed test plans and test cases for those API's.",
+      "Owned REST and UI testing frameworks used by the team, maintained and updated them as per new changes to the core product.",
+      "Proficient in working in an agile work environment with monthly and bi weekly sprints including daily stand up meetings."
+    ]
+  }
+]
