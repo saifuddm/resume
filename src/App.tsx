@@ -1,4 +1,4 @@
-import { Globe, MoonIcon, SunIcon } from "lucide-react";
+import { MoonIcon, SunIcon } from "lucide-react";
 import { useStore } from "./data/store";
 import { useEffect } from "react";
 import Experience from "./components/Experience";

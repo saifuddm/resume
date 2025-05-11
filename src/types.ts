@@ -1,4 +1,4 @@
-export type Experience = {
+export type ExperienceType = {
     company: string;
     position: string;
     dateString: string;
@@ -12,7 +12,7 @@ type Link = {
     label: string;
 }
 
-export type Project = {
+export type ProjectType = {
     name: string;
     description: string;
     dateString: string;

@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import experience from "./experience.json";
-import type { Experience } from "../types";
+import type { ExperienceType } from "../types";
 import projects from "./projects.json";
-import type { Project } from "../types";
+import type { ProjectType } from "../types";
 
 interface Store {
     text: string,
@@ -10,8 +10,8 @@ interface Store {
     isDark: boolean,
     toggleDarkMode: () => void,
     initializeDarkMode: () => void,
-    experience: Experience[],
-    projects: Project[],
+    experience: ExperienceType[],
+    projects: ProjectType[],
 }
 
 export const useStore = create<Store>((set) => ({

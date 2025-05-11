@@ -1,6 +1,6 @@
-import type { Experience } from "../types";
+import type { ExperienceType } from "../types";
 interface ExperienceProps {
-  experience: Experience;
+  experience: ExperienceType;
   id: string;
 }
 

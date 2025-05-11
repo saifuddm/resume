@@ -1,8 +1,7 @@
-import React from "react";
-import type { Project } from "../types";
+import type { ProjectType } from "../types";
 
 interface ProjectProps {
-  project: Project;
+  project: ProjectType;
   id: string;
 }
 
