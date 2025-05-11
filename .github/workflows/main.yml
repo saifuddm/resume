@@ -39,7 +39,8 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add .
+          git config --global --add safe.directory "/__w/resume/resume"
+          git add pdf/
           if git diff --staged --quiet; then
             echo "No changes to PDF, skipping commit."
           else
