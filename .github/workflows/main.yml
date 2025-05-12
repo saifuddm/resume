@@ -14,6 +14,9 @@ jobs:
       options: --user root
     permissions:
       contents: write
+    outputs:
+      committed: ${{ steps.commit.outputs.committed }}
+      version: ${{ steps.extract-version.outputs.version }}
 
     steps:
       - name: Checkout repository
@@ -35,15 +38,55 @@ jobs:
       - name: Generate PDF with Bun
         run: bun run scripts/generate-pdf.ts
 
+      - name: Extract version
+        id: extract-version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Commit and push PDF
+        id: commit
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
           git config --global --add safe.directory "/__w/resume/resume"
           git add pdf/
+
           if git diff --staged --quiet; then
             echo "No changes to PDF, skipping commit."
+            echo "committed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "Automated: Update resume PDF"
             git push
+            echo "committed=true" >> $GITHUB_OUTPUT
           fi
+
+  create-release:
+    needs: build-pdf
+    if: needs.build-pdf.outputs.committed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create tag and release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ needs.build-pdf.outputs.version }}"
+          TAG_NAME="v$VERSION"
+
+          # Create and push tag
+          git tag -a "$TAG_NAME" -m "Release $TAG_NAME"
+          git push origin "$TAG_NAME"
+
+          # Create GitHub release with PDF
+          gh release create "$TAG_NAME" \
+            --title "Resume $TAG_NAME" \
+            --notes "Automated resume release for version $VERSION" \
+            pdf/*.pdf
