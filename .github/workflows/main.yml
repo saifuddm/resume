@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build-pdf:
@@ -49,7 +50,7 @@ jobs:
       - name: Commit and push PDF
         id: commit
         env:
-          GH_REPO_TOKEN: ${{ secrets.RESUME_ACTION_PAT }}
+          GH_TOKEN: ${{ secrets.RESUME_ACTION_PAT }}
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
@@ -62,7 +63,7 @@ jobs:
             echo "committed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "Automated: Update resume PDF"
-            git push https://x-access-token:${GH_REPO_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+            git push origin HEAD:main
             echo "committed=true" >> $GITHUB_OUTPUT
           fi
 
@@ -82,7 +83,7 @@ jobs:
 
       - name: Create tag and release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RESUME_ACTION_PAT }}
         run: |
           VERSION="${{ needs.build-pdf.outputs.version }}"
           TAG_NAME="v$VERSION"
@@ -92,7 +93,6 @@ jobs:
           git push origin "$TAG_NAME" 
 
           echo "Creating GitHub release $TAG_NAME"
-          ls -R pdf/ 
           gh release create "$TAG_NAME" \
             --title "Resume $TAG_NAME" \
             --notes "Automated resume release for version $VERSION" \
