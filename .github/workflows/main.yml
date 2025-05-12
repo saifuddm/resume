@@ -5,11 +5,21 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "bun.lockb"
+      - "scripts/**"
   workflow_dispatch:
 
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
+    # Skip if the commit was made by GitHub Actions Bot
+    if: |
+      !endsWith(github.event.head_commit.author.email, 'actions@github.com') &&
+      github.event.head_commit.author.name != 'GitHub Actions Bot'
     container:
       image: ghcr.io/puppeteer/puppeteer:latest
       options: --user root
